@@ -3,10 +3,9 @@ import { View } from 'react-native';
 
 const App = () => (
   <View style={{ flex: 1, justifyContent: 'center' }}>
-    <Text style={{fontSize:16}}>The quick <Text style={{fontWeight:'bold'}}>brown fox</Text> jumps over the lazy dog</Text>
-  </View>
+  <Image style={{height:100,width:100}} source={{require:'../imgages'}}/>
+ </View>
 );
  
-);
 
 export default App;
