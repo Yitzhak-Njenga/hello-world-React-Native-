@@ -1,11 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
+import {ScrollView, Text, View } from 'react-native';
 
 const App = () => (
+
   <View style={{ flex: 1, justifyContent: 'center' }}>
-  <Image style={{height:100,width:100}} source={{require:'../imgages'}}/>
- </View>
+    <Text style={{ fontSize: 24, textAlign: 'center' }}>
+      Scroll me!
+    </Text>
+    <View style={{ height: 400, backgroundColor: '#e5e5e5' }}>
+      {/* This is our scrollable area */}
+      <ScrollView horizontal>
+      <View style={{ width: 300, height: 300, backgroundColor: 'red' }} />
+      <View style={{ width: 300, height: 300, backgroundColor: 'green' }} />
+      <View style={{ width: 300, height: 300, backgroundColor: 'blue' }} />
+      </ScrollView>
+    </View>
+  </View>
+  
 );
- 
 
 export default App;
