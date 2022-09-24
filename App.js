@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 
 const App = () => {
-  const [pressedCount, setPressedCount] = useState(0);
+  const [name, setName] = useState('');
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Text style={{ margin: 16 }}>
-        {pressedCount > 0
-          ? `The button was pressed ${pressedCount} times!`
-          : 'The button isn\'t pressed yet'
-        }
+    <View style={{
+      flex: 1,
+      alignContent: 'center', 
+      justifyContent: 'center', 
+      padding: 16,
+    }}>
+      <Text style={{ marginVertical: 16 }}>
+        {name ? `Hi ${name}!` : 'What is your name?'}
       </Text>
-      <Button
-        title='Press me'
-        onPress={() => setPressedCount(pressedCount + 1)}
-        disabled={pressedCount >= 3}
+      <TextInput
+        style={{ padding: 8, backgroundColor: '#f5f5f5' }}
+        onChangeText={text => setName(text)} 
+        setName ={name}
+        secureTextEntry
       />
     </View>
   );
