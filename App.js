@@ -5,6 +5,7 @@ const App = () => (
   <View style={styles.layout}>
     <View style={[styles.box, { backgroundColor: 'red' }]} />
     <View style={[styles.box, { backgroundColor: 'green' }]} />
+    <View style={[styles.box, { backgroundColor: 'blue' }]} />
   </View>
 );
 
@@ -16,7 +17,7 @@ const MAX_HEIGHT = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   layout: {
-   flex: 1,
+   flex: 1 / (1+2+1),
     backgroundColor: '#e5e5e5',
   },
   box: {
