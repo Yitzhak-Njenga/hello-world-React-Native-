@@ -14,11 +14,11 @@ export default App;
 export const styles = StyleSheet.create({
   layout: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#e5e5e5',
+    justifyContent: 'space-evenly',
+    backgroundColor: 'black',
   },
   box: {
-    flex: 1,
     backgroundColor: 'black',
+    height: 100
   },
 });
