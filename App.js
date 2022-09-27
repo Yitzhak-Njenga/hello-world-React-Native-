@@ -1,29 +1,26 @@
-import React from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
 
 const App = () => (
   <View style={styles.layout}>
-    <Pressable>
-    {(state) => <Box pressed={state.pressed} />}
-    </Pressable>
+    <View style={[styles.box, { backgroundColor: 'red' }]} />
+    <View style={[styles.box, { backgroundColor: 'green' }]} />
   </View>
 );
 
 export default App;
 
-export const Box = (props) => (
-  <View style={[styles.box, props.pressed && { backgroundColor:'blue'}]} />
-);
+// Get the maximum width/height (in dp) from the Dimensions API
+const MAX_WIDTH = Dimensions.get('window').width;
+const MAX_HEIGHT = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   layout: {
-    flex: 1,
-    alignItems: 'center', 
-    justifyContent: 'center',
+   flex: 1,
+    backgroundColor: '#e5e5e5',
   },
   box: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'red',
+    flex: 1,
+    backgroundColor: 'black',
   },
 });
