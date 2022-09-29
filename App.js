@@ -1,21 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const FeedScreen = () => (
-   <View style={styles.layout}>
-    <Text style={styles.title}>First screen</Text>
+  <View style={styles.layout}>
+    <Text style={styles.title}>Feed</Text>
   </View>
-)
+);
 
-const Stack = createStackNavigator();
+const CatalogScreen = () => (
+  <View style={styles.layout}>
+    <Text style={styles.title}>Catalog</Text>
+  </View>
+);
+
+const Tab = createBottomTabNavigator();
+
+export const AppNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={FeedScreen} />
+    <Tab.Screen name="Catalog" component={CatalogScreen} />
+  </Tab.Navigator>
+);
 
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator>
-  <Stack.Screen name="Feeds" component={FeedScreen} />
-    </Stack.Navigator>
+    <AppNavigator />
   </NavigationContainer>
 );
 
