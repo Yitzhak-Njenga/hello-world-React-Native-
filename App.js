@@ -1,13 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const FeedScreen = () => (
-  <View style={styles.layout}>
-    <Text style={styles.title}>Feed</Text>
-  </View>
-);
+const FeedScreen = () => {
+    const nav = useNavigation();
+
+
+
+
+  return (
+    <View style={styles.layout}>
+      <Text style={styles.title}>Feed</Text>
+        <Button
+    title = "Go to home"
+    onPress={()=> nav.navigate('Catalog')} 
+    />
+    </View>
+  );
+};
 
 const CatalogScreen = () => (
   <View style={styles.layout}>
@@ -15,14 +26,17 @@ const CatalogScreen = () => (
   </View>
 );
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export const AppNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name="Feed" component={FeedScreen} />
-    <Tab.Screen name="Catalog" component={CatalogScreen} />
-  </Tab.Navigator>
+  <Stack.Navigator>
+    <Stack.Screen name="Feed" component={FeedScreen} />
+    <Stack.Screen name="Catalog" component={CatalogScreen} />
+  </Stack.Navigator>
 );
+
+
+
 
 const App = () => (
   <NavigationContainer>
